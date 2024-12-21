@@ -1,13 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Игра в 15</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    
+    <header>
+        <h1>Игра в 15</h1>
+        <p>2024</p>
+    </header>
+
+    <main>
+        <div class="container__field">
+            <div class="field__list">
+                <p id="field__list"></p>
+            </div>
+            <div class="field__info">
+                <p>Ходы:<span id="moves">0</span></p>
+                <p id="time">00:00:00</p>
+                <button class="button btn__info" id="btn-popup-info">?</button>
+            </div>
+            <div class="field" id="field"></div>
+            <div class="container__input">
+                <div class="text__error">
+                    <p id="text__error">Некорректный ввод</p>
+                </div>
+                <input id="input-list" type="text" placeholder="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
+                <button id="btn-set" class="button btn-set">Установить</button>
+            </div>
+        </div>
+
+        <div class="best-result" id="best-result">
+            <h2>Лучший результат</h2>
+            <ul>
+                <li>
+                    <p>Ходы:</p><span id="best-moves">0</span>
+                </li>
+                <li>
+                    <p>Время:</p><span id="best-time">00:00:00</span>
+                </li>
+                <li class="container__btns">
+                    <button id="btn-clear-history" class="button btn-del">x</button>
+                    <button id="btn-popup-history" class="button btn-history">История</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="shadow" id="shadow"></div>
+
+        <div class="popup popup__info" id="popup-info">
+            <div class="popup__close" id="popup-close-info">x</div>
+            <h2 class="popup__title">Информация</h2>
+            <div class="popup__inner">
+                <p>
+                    <b>Игра в 15, пятнашки, такен</b> - популярная головоломка, придуманная в 1878 году Ноем Чепмэном.
+                    Цель игры - перемещая костяшки по коробке, добиться упорядочивания их по номерам, желательно сделав
+                    как можно меньше перемещений
+                </p>
+            </div>
+            <div class="popup__inner">
+                <p><b>Начать игру</b> - можно несколькими способами:</p>
+                <p>1) Кнопка <b>Начать</b> или клавиша <b>Enter</b> - перемешивают блоки</p>
+                <p>2) Ввод номеров через пробел - задает последовательность</p>
+                <p class="mt-10"><b>внимание:</b> при положении номеров в порядке возрастания 1-12 и 13 15 14 решение
+                    головоломки недостижимо!</p>
+            </div>
+            <div class="popup__inner popup__inner--center">
+                <p><b>Управление</b>: ← ↑ → ↓ или A W D S</p>
+                <p><b>Сбросить</b>: Escape (Esc)</p>
+            </div>
+        </div>
+
+        <div class="popup popup__player" id="popup-history">
+            <div class="popup__close" id="popup-close-history">x</div>
+            <p class="history__list" id="history-list"></p>
+            <div class="history__res">
+                <p>Ходы:<span id="history-moves"></span></p>
+                <p id="history-time"></p>
+            </div>
+            <div class="player">
+                <div class="player__field field" id="player-field"></div>
+                <div class="player__control">
+                    <p><Span id="player-current-move">0</Span>|<span id="player-total-moves">0</span></p>
+                    <div class="player__btns">
+                        <button id="player-move-back">&lsaquo;</button>
+                        <button id="player-play-pause">play</button>
+                        <button id="player-stop">&stop</button>
+                        <button id="player-move-forward">&rsaquo;</button>
+                        <button id="player-speed">x1</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="version">1.0</p>
+        <p>S.Samarsky</p>
+    </footer>
+
     <script src="./index.js"></script>
 </body>
+
 </html>
